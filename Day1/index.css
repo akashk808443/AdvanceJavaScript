@@ -1,0 +1,22 @@
+#main{
+    margin: auto;
+    border: 1px solid rgb(167, 162, 162);
+    height: 140px;
+    width: 110px;
+    padding: 20px;
+    }
+    .mynumber{
+        height: 50px;
+        width: 50px;
+        padding: 20px;
+    }
+    #number{
+        font-size: 30px;
+        padding: 20px;
+    }
+    #button{
+        border: 1px solid white;
+        height: 40px;
+        width: 100px;
+        justify-content: center;
+    }
