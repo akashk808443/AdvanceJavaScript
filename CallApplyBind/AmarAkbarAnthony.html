@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // call
+    function friends(){
+        console.log(`Amar is a ${this.skill},lives in goa`);
+        console.log(`Akbar is a ${this.skill},lives in mumbai`);
+        console.log(`Anthony is a ${this.skill},lives in kashmir`);
+    }
+
+    let Amar={
+        skill:"singer",
+        place:"Goa",
+    };
+    let Akbar={
+        skill:"chef",
+        place:"mumbai"
+    };
+    let Anthony={
+        skill:"magician",
+        place:"kashmir"
+    };
+
+    friends.call(Anthony);
+    friends.call(Akbar);
+    friends.call(Amar);
+
+    //apply
+
+    // function friends(a,b){
+    //     console.log(`Ambar is a ${this.skill},but also like ${a} ${b}`);
+       
+    // }
+
+    // let Ambar={
+    //     skill:"singer",
+    //     place:"Goa",
+    // };
+    // let Akki={
+    //     skill:"chef",
+    //     place:"mumbai"
+    // };
+    // let Anant={
+    //     skill:"magician",
+    //     place:"kashmir"
+    // };
+
+    // friends.apply(Anant,["singer","chef"]);
+
+
+    //bind
+    // function friends(a,b){
+    //     console.log(`Abra is a ${this.skill},but also like ${a} ${b}`);
+       
+    // }
+
+    // let Abra={
+    //     skill:"singer",
+    //     place:"Goa",
+    // };
+    // let dabra={
+    //     skill:"chef",
+    //     place:"mumbai"
+    // };
+    // let jabra={
+    //     skill:"magician",
+    //     place:"kashmir"
+    // };
+
+    // let x=friends.bind(jabra,"jalebi","fafda");
+    // x();
+
+</script>
