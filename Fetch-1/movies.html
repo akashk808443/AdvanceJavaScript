@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        height:200px;
+        width:170px;
+    }
+</style>
+<body>
+    <input type="text" placeholder="enter text" id="input">
+    <button onClick="getMovies()">enter</button>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+   
+    async function getMovies(){
+       try{
+        let movie=document.querySelector("#input").value;
+        let res = await fetch(`https://www.omdbapi.com/?apikey=5ab28005&s=${movie}`);
+       let data=await res.json();
+        console.log(data);
+         appendProducts(data.Search[0]);
+       } catch (err) {
+        console.log(err);
+       }
+    }
+
+    let container=document.querySelector("#container");
+
+    function appendProducts(data){
+        container.innerHTML=null;
+        let div=document.createElement("div");
+        let title=document.createElement("p");
+        title.innerText="Title" + ":"+" "+data.Title;
+        let poster=document.createElement("img");
+        poster.src=data.Poster;
+        let year=document.createElement("p");
+        year.innerText= "Year"+":"+" "+data.Year;
+        
+        div.append(title,poster,year);
+        container.append(div);
+
+       
+        
+        
+    }
+</script>
