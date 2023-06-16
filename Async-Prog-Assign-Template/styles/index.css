@@ -1,0 +1,50 @@
+
+#navbar{
+    display:flex;
+    width:100%;
+    height:40px;
+    background-color: rgb(160, 153, 153);
+    /* border:1px solid black; */
+    justify-content: right; 
+     padding:10px 0px 10px; 
+    
+
+}
+#navbar>div{
+    margin-right: 80px;
+    font-size: 20px;
+    padding:10px;
+ }
+ #movies{
+    display:grid;
+    width:100%;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    justify-content: space-around;
+    gap:20px;
+    margin-top: 30px;
+}
+#movies>div{
+    margin:auto;
+    width:280px;
+    height:300px;
+    justify-content: space-between;
+}
+#movies>div>img{
+    width:280px;
+    height:215px
+}
+#movies>div>p{
+
+    color: black;
+}
+#sort-buttons{
+    
+    padding:10px;
+    
+}
+#slideshow>img{
+    height:250px;
+    width:100%;
+    margin-top: 5px;
+}
