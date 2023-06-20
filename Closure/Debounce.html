@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce</title>
+</head>
+<style>
+    #navbar{
+        width:100%;
+        height:50px;
+        background-color: cadetblue;
+    }
+    #search{
+        width: 200px;
+        height:25px;
+        
+    }
+    #movies{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        width: 95%;
+        justify-content: space-around;
+        margin-top: 20px;
+        padding: 20px;
+
+        border: 1px solid black;
+    }
+    #movies>div{
+        width:200px;
+        height:300px;
+        
+    }
+</style>
+<body>
+    <div id="navbar">
+        <input oninput="debounce(main,1000)" type="text" id="search" placeholder="Search Movies">
+    </div>
+
+    <div id="movies"></div>
+</body>
+</html>
+<script src="./Debounce.js"></script>
