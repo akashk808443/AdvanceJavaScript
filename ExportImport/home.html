@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <style>
+    #parent{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(auto,1fr);
+    justify-content: space-around;
+    gap:10px;
+    margin: auto;
+    margin-top: 40px;
+}
+#parent>div>img{
+  height:250px;
+  width:250px;
+}
+#parent>div>{
+  margin: auto;
+  justify-content: center;
+}
+  </style>
+  <body>
+    <div id="navbar"></div>
+    <div id="parent"></div>
+  </body>
+</html>
+<script type="module">
+  let timerid;
+  let bag = document.querySelector("#parent");
+  let nav = document.querySelector("#navbar");
+  import navbar from "./components/navbar.js";
+  nav.innerHTML = navbar();
+  document.querySelector("#input").addEventListener("input", () => {
+    if (timerid) {
+      clearTimeout(timerid);
+    }
+    setTimeout(function () {
+      main();
+    }, 1000);
+  });
+
+  const searchFood = async () => {
+    try {
+      let search = document.querySelector("#input").value;
+      let res = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`
+      );
+      let data = await res.json();
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const appendData = (data) => {
+    if (data === undefined) {
+      return false;
+    }
+    bag.innerHTML=null;
+    data.forEach(function (el) {
+      let div=document.createElement("div")
+      let img = document.createElement("img");
+      img.src = el.strMealThumb;
+      let p = document.createElement("p");
+      p.innerText = el.strMeal;
+      let price = document.createElement("p");
+      price.innerText = "Price"+": "+"300";
+      
+      div.append(img,p,price);
+      bag.append(div);
+    });
+  };
+
+  const main = async () => {
+   
+    let data = await searchFood();
+    console.log(data);
+    appendData(data.meals);
+  };
+</script>

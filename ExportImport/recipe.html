@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <div id="navbar">
+    </div>
+    <div id="container"></div>
+</body>
+</html>
+<script type="module">
+    let nav=document.querySelector("#navbar");
+    import navbar from "./components/navbar.js";
+    nav.innerHTML=navbar();
+    let parent=document.querySelector("#container");
+    import{fetchApi,appendFood} from "./scripts/appendFetch.js";
+    let res= await fetchApi(`https://www.themealdb.com/api/json/v1/1/random.php`);
+        console.log(res);
+        appendFood(res,parent)
+</script>
