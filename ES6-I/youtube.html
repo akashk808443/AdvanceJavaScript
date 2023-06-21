@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #nav{
+        width:100%;
+        height:70px;
+        border: 1px solid whitesmoke;
+        
+    }
+    #search{
+        margin-left: 100px;
+        height:30px;
+        width: 320px;
+        padding: 5px;
+        border-radius: 35px;
+        font-size: 20px;
+    }
+    #button{
+        height: 30px;
+        border-radius: 5px;
+        background-color:white;
+    }
+    #nav>img{
+        height:37px;
+        width:180px;
+        padding: 5px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: -15px;
+    }
+    #container{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(auto,1fr);
+        justify-content: space-around;
+        margin: auto;
+    }
+    
+    
+</style>
+<body>
+    <div id="nav">
+        <img src="https://www.logo.wine/a/logo/YouTube/YouTube-Logo.wine.svg"/>
+         <input type="text" id="search" placeholder="Search">
+         <button onclick="searchEngine()" id="button">search</button>
+    </div>
+    <div id="container"></div>
+</body>
+</html>
+<script src="./youtube.js"></script>
